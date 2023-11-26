@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Contracs;
+namespace App\Contracts;
 
-interface SmsNotifierInterface
+interface SmsService
 {
     public function sendSms($phoneNumber, $message);
 }

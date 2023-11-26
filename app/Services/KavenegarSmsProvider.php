@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Services\SmsProviders;
+namespace App\Services;
 
-use App\Contracs\SmsNotifierInterface;
-use Kavenegar\Laravel\Facade as Kavenegar;
+use App\Contracts\SmsProvider;
 
-class KavenegarSmsNotifier implements SmsNotifierInterface
+class KavenegarSmsProvider implements SmsProvider
 {
-
-    public function sendSms($phoneNumber, $message)
-    {
+    public function send($phoneNumber, $message){
         try {
             $sender = "10004346";
             $receptor = [$phoneNumber];
