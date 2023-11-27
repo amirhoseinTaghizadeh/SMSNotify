@@ -2,10 +2,15 @@
 
 namespace App\Services;
 
+use App\Contracts\SmsService;
+use App\Services\providers\KavenegarSmsProvider;
+
 class SmsServiceFactory
 {
-    public static function create(SmsProvider $provider)
-    {
-        return new SmsServiceImpl($provider);
+
+    public function createSms(SmsService $service){
+
+        return new KavenegarSmsProvider();
     }
+
 }
