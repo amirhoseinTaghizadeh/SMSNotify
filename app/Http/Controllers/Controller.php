@@ -21,7 +21,6 @@ class Controller extends BaseController
             'message' => 'nullable',
         ]);
 
-        // Check if validation fails
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
         }
@@ -29,10 +28,8 @@ class Controller extends BaseController
         $phone = $request->phone;
         $message = $request->message;
 
-        // Use the SmsService to send the SMS
         $smsService->sendSms($phone, $message);
 
-        // You might return a response if needed
         return response()->json(['message' => 'SMS sent successfully']);
     }
 
