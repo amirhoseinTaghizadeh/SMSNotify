@@ -5,6 +5,7 @@ namespace App\Providers;
 
 use App\Contracts\SmsService;
 use App\Services\SmsServiceFactory;
+use App\Services\SMSServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,10 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(SmsService::class, function ($app) {
-            $factory = $app->make(SmsServiceFactory::class);
-            return $factory->createSms();
-        });
+        $this->app->bind(SMSService::class, SMSServiceProvider::class);
     }
 
     /**
